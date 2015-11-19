@@ -2,10 +2,4 @@
 各种进程调度的算法
 
 # FCFS
-总运行时间：202(ms)
-进程调度过程：
-进程名	到达时间	服务时间	开始时间	完成时间	周转时间	带权周转时间	
-A	0	1	0	1	1	1.0
-B	1	100	1	101	100	1.0
-C	2	1	101	102	100	100.0
-D	3	100	102	202	199	1.99
+[](https://github.com/William-Hai/ProcessSchedulingRules/blob/master/images/20151119115655.jpg)
