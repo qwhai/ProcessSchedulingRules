@@ -1,6 +1,8 @@
 package org.rule.process.scheduling.bll;
 
 import org.rule.process.scheduling.model.ProcessFCFSModel;
+import org.rule.process.scheduling.model.ProcessModel;
+import org.rule.process.scheduling.model.ProcessRFPFModel;
 import org.rule.process.scheduling.model.ProcessSPFModel;
 
 /**
@@ -33,5 +35,61 @@ public class ProcessBLL {
         models[4] = new ProcessSPFModel("E", 4, 4);
 
         return models;
+    }
+
+    public static ProcessRFPFModel[] getRFPFModelArray() {
+
+        ProcessRFPFModel[] models = new ProcessRFPFModel[6];
+
+        models[0] = new ProcessRFPFModel("A", 4, 0, 1);
+        models[1] = new ProcessRFPFModel("B", 4, 1, 2);
+        models[2] = new ProcessRFPFModel("C", 4, 3, 3);
+        models[3] = new ProcessRFPFModel("D", 1, 5, 4);
+        models[4] = new ProcessRFPFModel("E", 2, 14, 3);
+        models[5] = new ProcessRFPFModel("F", 3, 15, 4);
+
+        return models;
+    }
+
+    /**
+     * 判断所有进行是否都已经运行完毕
+     * @param runFlag
+     *          进程队列中的进程运行情况
+     * @return
+     *          是否全部执行结束
+     */
+    public static boolean noProcessWaitting(boolean[] runFlag) {
+        for (boolean flag : runFlag) {
+            if (!flag) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * 判断一个进程是否已经到达
+     * @param process
+     *          进程
+     * @param currentTime
+     *          当前时间
+     * @return
+     *          是否到达
+     */
+    public static boolean isProcessComing(ProcessModel process, long currentTime) {
+        if (process instanceof ProcessRFPFModel) {
+            return ((ProcessRFPFModel)process).getComingTime() <= currentTime;
+        }
+
+        if (process instanceof ProcessFCFSModel) {
+            return ((ProcessFCFSModel)process).getComingTime() <= currentTime;
+        }
+
+        if (process instanceof ProcessSPFModel) {
+            return ((ProcessSPFModel)process).getComingTime() <= currentTime;
+        }
+
+        return false;
     }
 }

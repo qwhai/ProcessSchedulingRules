@@ -1,5 +1,6 @@
 package org.rule.process.scheduling.algorithm;
 
+import org.rule.process.scheduling.bll.ProcessBLL;
 import org.rule.process.scheduling.model.ProcessModel;
 import org.rule.process.scheduling.model.ProcessSPFModel;
 
@@ -28,8 +29,12 @@ public class SPF implements ProcessSchedule {
         int runTimeSum = 0;
         int index = 0;
         ProcessSPFModel currentProcess = processArray[index];
-        while(!noProcessWaitting(runFlag)) {
+        while(!ProcessBLL.noProcessWaitting(runFlag)) {
             currentProcess.setStartRunTime(runTimeSum);
+            if (runTimeSum < currentProcess.getComingTime()) {
+                runTimeSum = (int)currentProcess.getComingTime();
+            }
+
             runTimeSum += currentProcess.getRunTime();
             currentProcess.setFinishTime(runTimeSum);
             currentProcess.setTurnaroundTime(runTimeSum - currentProcess.getComingTime());
@@ -38,8 +43,11 @@ public class SPF implements ProcessSchedule {
             runFlag[index] = true;
 
             index = getIndexMinRuntime(processArray, runFlag, runTimeSum);
-            if (index >= 0) {
+            if (0 <= index && index < processArray.length) {
                 currentProcess = processArray[index];
+            } else {
+                System.out.println("未知异常");
+                break;
             }
         }
 
@@ -60,11 +68,18 @@ public class SPF implements ProcessSchedule {
             return -1;
         }
 
-        int index = 0;
+        int earliestIndex = 0; // 未执行的最早的进程
+        long earliestTime = Long.MAX_VALUE;
+        int index = -1;
         long minTime = Long.MAX_VALUE;
         for (int i = 0; i < processArray.length; i++) {
             if (runFlag[i]) {
                 continue;
+            }
+
+            if (processArray[i].getComingTime() < earliestTime) {
+                earliestIndex = i;
+                earliestTime = processArray[i].getComingTime();
             }
 
             if (processArray[i].getComingTime() > runTimeSum) {
@@ -77,21 +92,8 @@ public class SPF implements ProcessSchedule {
             }
         }
 
+        index = index < 0 ? earliestIndex : index;
+
         return index;
-    }
-
-    /**
-     * 判断所有进行是否都已经运行完毕
-     * @param runFlag
-     * @return
-     */
-    private boolean noProcessWaitting(boolean[] runFlag) {
-        for (boolean flag : runFlag) {
-            if (!flag) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
