@@ -26,6 +26,10 @@ public class FCFS implements ProcessSchedule {
         ProcessFCFSModel[] fcfsModels = (ProcessFCFSModel[])processList;
         int runTimeSum = 0;
         for (ProcessFCFSModel model : fcfsModels) {
+            if (runTimeSum < model.getComingTime()) {
+                runTimeSum = (int)model.getComingTime();
+            }
+
             model.setStartRunTime(runTimeSum);
             runTimeSum += model.getRunTime();
             model.setFinishTime(runTimeSum);

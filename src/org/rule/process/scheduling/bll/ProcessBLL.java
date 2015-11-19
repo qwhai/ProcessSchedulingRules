@@ -1,9 +1,7 @@
 package org.rule.process.scheduling.bll;
 
 import org.rule.process.scheduling.model.ProcessFCFSModel;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.rule.process.scheduling.model.ProcessSPFModel;
 
 /**
  * 算法帮助类
@@ -11,26 +9,29 @@ import java.util.List;
  */
 public class ProcessBLL {
 
-    public static List<ProcessFCFSModel> getFCFSModelList() {
-
-        List<ProcessFCFSModel> models = new ArrayList<>();
-        models.add(new ProcessFCFSModel("A", 1, 0));
-        models.add(new ProcessFCFSModel("B", 100, 1));
-        models.add(new ProcessFCFSModel("C", 1, 2));
-        models.add(new ProcessFCFSModel("D", 100, 3));
-
-        return models;
-    }
-
     public static ProcessFCFSModel[] getFCFSModelArray() {
 
-        ProcessFCFSModel[] models = new ProcessFCFSModel[4];
-        models[0] = new ProcessFCFSModel("A", 1, 0);
-        models[1] = new ProcessFCFSModel("B", 100, 1);
-        models[2] = new ProcessFCFSModel("C", 1, 2);
-        models[3] = new ProcessFCFSModel("D", 100, 3);
+        ProcessFCFSModel[] models = new ProcessFCFSModel[5];
+
+        models[0] = new ProcessFCFSModel("A", 4, 0);
+        models[1] = new ProcessFCFSModel("B", 3, 1);
+        models[2] = new ProcessFCFSModel("C", 5, 2);
+        models[3] = new ProcessFCFSModel("D", 2, 3);
+        models[4] = new ProcessFCFSModel("E", 4, 4);
 
         return models;
     }
 
+    public static ProcessSPFModel[] getSPFModelArray() {
+
+        ProcessSPFModel[] models = new ProcessSPFModel[5];
+
+        models[0] = new ProcessSPFModel("A", 4, 0);
+        models[1] = new ProcessSPFModel("B", 3, 1);
+        models[2] = new ProcessSPFModel("C", 5, 2);
+        models[3] = new ProcessSPFModel("D", 2, 3);
+        models[4] = new ProcessSPFModel("E", 4, 4);
+
+        return models;
+    }
 }
