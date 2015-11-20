@@ -11,10 +11,7 @@
 ![](https://github.com/William-Hai/ProcessSchedulingRules/blob/master/images/20151119224410.jpg)
 结果</br>
 ![](https://github.com/William-Hai/ProcessSchedulingRules/blob/master/images/20151119135721.jpg)
-# RFPF 非抢占式优先权算法
-结果</br>
-![](https://github.com/William-Hai/ProcessSchedulingRules/blob/master/images/20151120010912.jpg)
-# AFPF 抢占式优先权算法
+# RFPF & AFPF (非)抢占式优先权算法
 结果</br>
 ![](https://github.com/William-Hai/ProcessSchedulingRules/blob/master/images/20151120141643.jpg)
 </br>
