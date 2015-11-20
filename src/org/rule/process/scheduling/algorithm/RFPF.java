@@ -9,9 +9,9 @@ import org.rule.process.scheduling.model.ProcessRFPFModel;
  * RFPF
  * Created by Naga on 2015/11/19.
  */
-public class RelativePriority implements ProcessSchedule {
+public class RFPF implements ProcessSchedule {
 
-    private static final String TAG = RelativePriority.class.getSimpleName();
+    private static final String TAG = RFPF.class.getSimpleName();
 
     @Override
     public int execute(ProcessModel... processList) {
@@ -28,7 +28,6 @@ public class RelativePriority implements ProcessSchedule {
         ProcessRFPFModel[] processes = (ProcessRFPFModel[])processList;
         boolean[] runFlag = new boolean[processes.length];
         int currentTime = 0;
-        // TODO
         int index = -1;
         ProcessRFPFModel currentProcess;
         for (int i = 0; i < processes.length; i++) {

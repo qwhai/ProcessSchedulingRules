@@ -1,9 +1,6 @@
 package org.rule.process.scheduling.bll;
 
-import org.rule.process.scheduling.model.ProcessFCFSModel;
-import org.rule.process.scheduling.model.ProcessModel;
-import org.rule.process.scheduling.model.ProcessRFPFModel;
-import org.rule.process.scheduling.model.ProcessSPFModel;
+import org.rule.process.scheduling.model.*;
 
 /**
  * 算法帮助类
@@ -47,6 +44,20 @@ public class ProcessBLL {
         models[3] = new ProcessRFPFModel("D", 1, 5, 4);
         models[4] = new ProcessRFPFModel("E", 2, 14, 3);
         models[5] = new ProcessRFPFModel("F", 3, 15, 4);
+
+        return models;
+    }
+
+    public static ProcessAFPFModel[] getAFPFModelArray() {
+
+        ProcessAFPFModel[] models = new ProcessAFPFModel[6];
+
+        models[0] = new ProcessAFPFModel("A", 4, 0, 1);
+        models[1] = new ProcessAFPFModel("B", 4, 1, 2);
+        models[2] = new ProcessAFPFModel("C", 4, 3, 3);
+        models[3] = new ProcessAFPFModel("D", 1, 5, 4);
+        models[4] = new ProcessAFPFModel("E", 2, 14, 3);
+        models[5] = new ProcessAFPFModel("F", 3, 15, 4);
 
         return models;
     }

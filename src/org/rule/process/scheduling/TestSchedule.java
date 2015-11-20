@@ -1,9 +1,11 @@
 package org.rule.process.scheduling;
 
+import org.rule.process.scheduling.algorithm.AFPF;
 import org.rule.process.scheduling.algorithm.FCFS;
-import org.rule.process.scheduling.algorithm.RelativePriority;
+import org.rule.process.scheduling.algorithm.RFPF;
 import org.rule.process.scheduling.algorithm.SPF;
 import org.rule.process.scheduling.bll.ProcessBLL;
+import org.rule.process.scheduling.model.ProcessAFPFModel;
 import org.rule.process.scheduling.model.ProcessFCFSModel;
 import org.rule.process.scheduling.model.ProcessRFPFModel;
 import org.rule.process.scheduling.model.ProcessSPFModel;
@@ -19,6 +21,8 @@ public class TestSchedule {
         schedule.testSPF();
         System.out.println("---------------------------------------------------------------------------------");
         schedule.testRFPF();
+        System.out.println("---------------------------------------------------------------------------------");
+        schedule.testAFPF();
     }
 
     private void testFCFS() {
@@ -53,8 +57,8 @@ public class TestSchedule {
 
     private void testRFPF() {
         ProcessRFPFModel[] processArray = ProcessBLL.getRFPFModelArray();
-        RelativePriority relativePriority = new RelativePriority();
-        int timeSum = relativePriority.execute(processArray);
+        RFPF rfpf = new RFPF();
+        int timeSum = rfpf.execute(processArray);
         System.out.println("RFPF总运行时间：" + timeSum + "(ms)");
         System.out.println("进程调度过程：\n进程名\t到达时间\t服务时间\t优先级\t开始时间\t完成时间\t周转时间\t带权周转时间\t");
         for (ProcessRFPFModel process : processArray) {
@@ -64,5 +68,12 @@ public class TestSchedule {
                     process.getStartRunTime() + "\t" + process.getFinishTime() + "\t" +
                     process.getTurnaroundTime() + "\t" + StringTools.format(process.getTurnaroundWeightTime()));
         }
+    }
+
+    private void testAFPF() {
+        ProcessAFPFModel[] processArray = ProcessBLL.getAFPFModelArray();
+        AFPF afpf = new AFPF();
+        int timeSum = afpf.execute(processArray);
+        System.out.println("RFPF总运行时间：" + timeSum + "(ms)");
     }
 }
