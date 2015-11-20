@@ -6,8 +6,8 @@ import org.rule.process.scheduling.model.ProcessRFPFModel;
 
 /**
  * 非抢占式优先权算法(相对优先权)
- * RFPF
  * Created by Naga on 2015/11/19.
+ * Blog : http://blog.csdn.net/lemon_tree12138
  */
 public class RFPF implements ProcessSchedule {
 

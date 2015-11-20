@@ -6,6 +6,7 @@ import org.rule.process.scheduling.model.ProcessModel;
 /**
  * 先来先服务算法
  * Created by Naga on 2015/11/19.
+ * Blog : http://blog.csdn.net/lemon_tree12138
  */
 public class FCFS implements ProcessSchedule {
 

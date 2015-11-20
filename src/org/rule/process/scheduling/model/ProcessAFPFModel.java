@@ -3,6 +3,7 @@ package org.rule.process.scheduling.model;
 /**
  * 模拟抢占式优先权算法(绝对优先权)进程对象
  * Created by Naga on 2015/11/20.
+ * Blog : http://blog.csdn.net/lemon_tree12138
  */
 public class ProcessAFPFModel extends ProcessModel {
 

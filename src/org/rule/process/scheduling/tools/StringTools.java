@@ -3,6 +3,9 @@ package org.rule.process.scheduling.tools;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Blog : http://blog.csdn.net/lemon_tree12138
+ */
 public class StringTools extends Tools {
 
     /**

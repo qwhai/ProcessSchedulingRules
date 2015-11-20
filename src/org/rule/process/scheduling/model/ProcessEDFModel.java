@@ -3,6 +3,7 @@ package org.rule.process.scheduling.model;
 /**
  * 模拟最早截止时间优先即EDF(Earliest Deadline First)算法对象
  * Created by Naga on 2015/11/19.
+ * Blog : http://blog.csdn.net/lemon_tree12138
  */
 public class ProcessEDFModel extends ProcessModel {
 

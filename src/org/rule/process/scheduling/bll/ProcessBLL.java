@@ -5,6 +5,7 @@ import org.rule.process.scheduling.model.*;
 /**
  * 算法帮助类
  * Created by Naga on 2015/11/19.
+ * Blog : http://blog.csdn.net/lemon_tree12138
  */
 public class ProcessBLL {
 

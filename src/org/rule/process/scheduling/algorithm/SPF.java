@@ -7,6 +7,7 @@ import org.rule.process.scheduling.model.ProcessSPFModel;
 /**
  * 短进程优先
  * Created by Naga on 2015/11/19.
+ * Blog : http://blog.csdn.net/lemon_tree12138
  */
 public class SPF implements ProcessSchedule {
 
