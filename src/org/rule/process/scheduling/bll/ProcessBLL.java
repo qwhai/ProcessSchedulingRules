@@ -90,9 +90,7 @@ public class ProcessBLL {
      *          是否到达
      */
     public static boolean isProcessComing(ProcessModel process, long currentTime) {
-        if (process instanceof ProcessRFPFModel) {
-            return ((ProcessRFPFModel)process).getComingTime() <= currentTime;
-        }
+
 
         if (process instanceof ProcessFCFSModel) {
             return ((ProcessFCFSModel)process).getComingTime() <= currentTime;
@@ -100,6 +98,14 @@ public class ProcessBLL {
 
         if (process instanceof ProcessSPFModel) {
             return ((ProcessSPFModel)process).getComingTime() <= currentTime;
+        }
+
+        if (process instanceof ProcessRFPFModel) {
+            return ((ProcessRFPFModel)process).getComingTime() <= currentTime;
+        }
+
+        if (process instanceof ProcessAFPFModel) {
+            return ((ProcessAFPFModel)process).getComingTime() <= currentTime;
         }
 
         return false;

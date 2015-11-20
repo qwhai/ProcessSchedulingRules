@@ -34,6 +34,10 @@ public class RFPF implements ProcessSchedule {
             index = getIndexComingMaxPriority(processes, runFlag, currentTime);
             if (0 <= index && index <= processes.length) {
                 currentProcess = processes[index];
+                if (currentTime < currentProcess.getComingTime()) {
+                    currentTime = (int)currentProcess.getComingTime();
+                }
+
                 currentProcess.setStartRunTime(currentTime);
                 currentTime += currentProcess.getRunTime();
                 currentProcess.setFinishTime(currentTime);

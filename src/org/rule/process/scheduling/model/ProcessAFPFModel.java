@@ -10,6 +10,7 @@ public class ProcessAFPFModel extends ProcessModel {
     private long comingTime; // 到达时间
     private int priority; // 进程优先级
     private long startRunTime; // 开始执行时间
+    private long freeTime; // 剩余时间(针对中间被中断过的进程而言)
     private long finishTime; // 完成时间
     private long turnaroundTime; // 周转时间
     private double turnaroundWeightTime; // 带权周转时间
@@ -18,6 +19,7 @@ public class ProcessAFPFModel extends ProcessModel {
         this.processId = processId;
         this.runTime = runTime;
         this.comingTime = comingTime;
+        this.freeTime = this.runTime;
         this.priority = priority;
     }
 
@@ -43,6 +45,18 @@ public class ProcessAFPFModel extends ProcessModel {
 
     public void setStartRunTime(long startRunTime) {
         this.startRunTime = startRunTime;
+    }
+
+    public long getFreeTime() {
+        return freeTime;
+    }
+
+    public void setFreeTime(long freeTime) {
+        this.freeTime = freeTime;
+    }
+
+    public void reduceSelfFreeTime() {
+        this.freeTime--;
     }
 
     public long getFinishTime() {
